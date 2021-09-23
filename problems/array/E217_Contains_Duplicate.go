@@ -6,13 +6,11 @@ import "sort"
 func containsDuplicate(nums []int) bool {
 
 	m := make(map[int]struct{})
-
 	for _, n := range nums {
 		if _, ok := m[n]; ok {
 			return true
-		} else {
-			m[n] = struct{}{}
 		}
+		m[n] = struct{}{}
 	}
 	return false
 
