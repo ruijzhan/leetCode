@@ -1,5 +1,7 @@
 package linkedlist
 
+import "fmt"
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -16,4 +18,12 @@ func makeLinkedList(nums ...int) *ListNode {
 		prev = prev.Next
 	}
 	return head
+}
+
+func printLinkedList(head *ListNode) {
+	for head != nil {
+		next := head.Next
+		fmt.Printf("%d ", head.Val)
+		head = next
+	}
 }
