@@ -16,33 +16,33 @@ func Test_reverseList(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: makeLinkedList([]int{}),
+				head: makeLinkedList(),
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				head: makeLinkedList([]int{0}),
+				head: makeLinkedList(0),
 			},
-			want: makeLinkedList([]int{0}),
+			want: makeLinkedList(0),
 		},
 		{
 			args: args{
-				head: makeLinkedList([]int{0, 1}),
+				head: makeLinkedList(0, 1),
 			},
-			want: makeLinkedList([]int{1, 0}),
+			want: makeLinkedList(1, 0),
 		},
 		{
 			args: args{
-				head: makeLinkedList([]int{0, 1, 2}),
+				head: makeLinkedList(0, 1, 2),
 			},
-			want: makeLinkedList([]int{2, 1, 0}),
+			want: makeLinkedList(2, 1, 0),
 		},
 		{
 			args: args{
-				head: makeLinkedList([]int{0, 1, 2, 3}),
+				head: makeLinkedList(0, 1, 2, 3),
 			},
-			want: makeLinkedList([]int{3, 2, 1, 0}),
+			want: makeLinkedList(3, 2, 1, 0),
 		},
 	}
 	for _, tt := range tests {
