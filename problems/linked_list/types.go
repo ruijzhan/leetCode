@@ -1,6 +1,9 @@
 package linkedlist
 
-import "fmt"
+import (
+	"strconv"
+	"strings"
+)
 
 type ListNode struct {
 	Val  int
@@ -20,10 +23,16 @@ func makeLinkedList(nums ...int) *ListNode {
 	return head
 }
 
-func printLinkedList(head *ListNode) {
+func (head *ListNode) String() string {
+	buf := strings.Builder{}
+	buf.WriteString("[")
 	for head != nil {
-		next := head.Next
-		fmt.Printf("%d ", head.Val)
-		head = next
+		buf.WriteString(strconv.Itoa(head.Val))
+		if head.Next != nil {
+			buf.WriteString(",")
+		}
+		head = head.Next
 	}
+	buf.WriteString("]")
+	return buf.String()
 }
