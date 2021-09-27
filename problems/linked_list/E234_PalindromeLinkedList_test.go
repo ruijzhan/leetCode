@@ -13,37 +13,37 @@ func Test_isPalindrome(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: makeLinkedList(1, 2),
+				head: newLinkedList(1, 2),
 			},
 			want: false,
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 2, 1),
+				head: newLinkedList(1, 2, 2, 1),
 			},
 			want: true,
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 2, 2, 1),
+				head: newLinkedList(1, 2, 2, 2, 1),
 			},
 			want: true,
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 3, 2, 1),
+				head: newLinkedList(1, 2, 3, 2, 1),
 			},
 			want: true,
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 3, 3, 2, 1),
+				head: newLinkedList(1, 2, 3, 3, 2, 1),
 			},
 			want: true,
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 3, 3, 2, 2),
+				head: newLinkedList(1, 2, 3, 3, 2, 2),
 			},
 			want: false,
 		},

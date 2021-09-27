@@ -24,21 +24,21 @@ func Test_deleteDuplicates(t *testing.T) {
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 1, 2, 2, 3, 3),
+				head: newLinkedList(1, 1, 2, 2, 3, 3),
 			},
-			want: makeLinkedList(1, 2, 3),
+			want: newLinkedList(1, 2, 3),
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 1, 2),
+				head: newLinkedList(1, 1, 2),
 			},
-			want: makeLinkedList(1, 2),
+			want: newLinkedList(1, 2),
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
+				head: newLinkedList(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
 			},
-			want: makeLinkedList(1, 2, 3, 4),
+			want: newLinkedList(1, 2, 3, 4),
 		},
 	}
 	for _, tt := range tests {

@@ -10,7 +10,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func makeLinkedList(nums ...int) *ListNode {
+func newLinkedList(nums ...int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -21,6 +21,25 @@ func makeLinkedList(nums ...int) *ListNode {
 		prev = prev.Next
 	}
 	return head
+}
+
+func newRing(n int, nums ...int) *ListNode {
+	l := newLinkedList(nums...)
+	var nthNode, tail *ListNode
+	nth := 0
+	curr := l
+
+	for curr != nil {
+		if nth == n {
+			nthNode = curr
+		}
+		nth++
+		tail = curr
+		curr = curr.Next
+	}
+	tail.Next = nthNode
+
+	return l
 }
 
 func (head *ListNode) String() string {

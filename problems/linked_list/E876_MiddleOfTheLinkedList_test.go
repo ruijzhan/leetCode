@@ -16,21 +16,21 @@ func Test_middleNode(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: makeLinkedList(1),
+				head: newLinkedList(1),
 			},
-			want: makeLinkedList(1),
+			want: newLinkedList(1),
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 3, 4, 5),
+				head: newLinkedList(1, 2, 3, 4, 5),
 			},
-			want: makeLinkedList(3, 4, 5),
+			want: newLinkedList(3, 4, 5),
 		},
 		{
 			args: args{
-				head: makeLinkedList(1, 2, 3, 4, 5, 6),
+				head: newLinkedList(1, 2, 3, 4, 5, 6),
 			},
-			want: makeLinkedList(4, 5, 6),
+			want: newLinkedList(4, 5, 6),
 		},
 	}
 	for _, tt := range tests {

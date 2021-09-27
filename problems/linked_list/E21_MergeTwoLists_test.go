@@ -24,24 +24,24 @@ func Test_mergeTwoLists(t *testing.T) {
 		},
 		{
 			args: args{
-				l1: makeLinkedList(1, 3, 5, 7, 9),
+				l1: newLinkedList(1, 3, 5, 7, 9),
 				l2: nil,
 			},
-			want: makeLinkedList(1, 3, 5, 7, 9),
+			want: newLinkedList(1, 3, 5, 7, 9),
 		},
 		{
 			args: args{
-				l1: makeLinkedList(1, 3, 5, 7, 9),
-				l2: makeLinkedList(2, 4, 6, 8, 10),
+				l1: newLinkedList(1, 3, 5, 7, 9),
+				l2: newLinkedList(2, 4, 6, 8, 10),
 			},
-			want: makeLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+			want: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
 		},
 		{
 			args: args{
-				l1: makeLinkedList(1, 1, 2, 3, 3),
-				l2: makeLinkedList(1, 1, 2, 2, 2),
+				l1: newLinkedList(1, 1, 2, 3, 3),
+				l2: newLinkedList(1, 1, 2, 2, 2),
 			},
-			want: makeLinkedList(1, 1, 1, 1, 2, 2, 2, 2, 3, 3),
+			want: newLinkedList(1, 1, 1, 1, 2, 2, 2, 2, 3, 3),
 		},
 	}
 	for _, tt := range tests {
