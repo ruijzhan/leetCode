@@ -1,13 +1,16 @@
 package linkedlist
 
 func hasCycle(head *ListNode) bool {
-	slow, fast := head, head
+	if head == nil || head.Next == nil {
+		return false
+	}
+	slow, fast := head, head.Next
 
 	for fast != nil && fast.Next != nil {
-		slow = slow.Next
-		if slow.Val == fast.Val {
+		if slow == fast {
 			return true
 		}
+		slow = slow.Next
 		fast = fast.Next.Next
 	}
 
