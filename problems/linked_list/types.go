@@ -43,9 +43,15 @@ func newRing(n int, nums ...int) *ListNode {
 }
 
 func (head *ListNode) String() string {
+	met := make(map[*ListNode]struct{})
 	buf := strings.Builder{}
 	buf.WriteString("[")
 	for head != nil {
+		if _, ok := met[head]; ok {
+			buf.WriteString("ERROR: ring detected")
+			break
+		}
+		met[head] = struct{}{}
 		buf.WriteString(strconv.Itoa(head.Val))
 		if head.Next != nil {
 			buf.WriteString(",")
