@@ -41,6 +41,18 @@ func Test_hasCycle(t *testing.T) {
 			},
 			want: false,
 		},
+		{
+			args: args{
+				head: nil,
+			},
+			want: false,
+		},
+		{
+			args: args{
+				head: &ListNode{},
+			},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
