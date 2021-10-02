@@ -1,6 +1,8 @@
 package array
 
-import "sort"
+import (
+	"sort"
+)
 
 // 哈希方法 复杂度为 O(N)
 func containsDuplicate(nums []int) bool {
@@ -25,4 +27,21 @@ func containsDuplicate2(nums []int) bool {
 		}
 	}
 	return false
+}
+
+// 递归
+func containsDuplicate3(nums []int) bool {
+	sort.Ints(nums)
+	return hasDup(nums)
+}
+
+func hasDup(nums []int) bool {
+	if len(nums) <= 1 {
+		return false
+	}
+	if nums[0] == nums[1] {
+		return true
+	}
+
+	return false || hasDup(nums[1:])
 }
