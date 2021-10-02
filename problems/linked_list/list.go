@@ -8,18 +8,39 @@ import (
 type ListNode struct {
 	Val  int
 	Next *ListNode
+	Prev *ListNode
 }
 
+// 递归
 func newLinkedList(nums ...int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
-	head := &ListNode{Val: nums[0]}
-	prev := head
-	for _, n := range nums[1:] {
-		prev.Next = &ListNode{Val: n}
-		prev = prev.Next
+	return &ListNode{Val: nums[0], Next: newLinkedList(nums[1:]...)}
+}
+
+func newLinkedList2(nums ...int) *ListNode {
+	head := new(ListNode)
+	curr := head
+	for _, num := range nums {
+		curr.Next = &ListNode{Val: num}
+		curr = curr.Next
 	}
+	return head.Next
+}
+
+func newDoublyLinkedList(nums ...int) *ListNode {
+	return doublyHelper(nil, nums)
+}
+
+func doublyHelper(prev *ListNode, nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+
+	head := &ListNode{Val: nums[0], Prev: prev}
+	head.Next = doublyHelper(head, nums[1:])
+
 	return head
 }
 

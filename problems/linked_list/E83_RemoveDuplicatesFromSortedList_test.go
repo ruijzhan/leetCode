@@ -19,8 +19,8 @@ func Test_deleteDuplicates(t *testing.T) {
 			want: nil,
 		},
 		{
-			args: args{head: &ListNode{0, nil}},
-			want: &ListNode{0, nil},
+			args: args{head: &ListNode{Val: 0}},
+			want: &ListNode{Val: 0},
 		},
 		{
 			args: args{
@@ -64,8 +64,8 @@ func Test_deleteDuplicates2(t *testing.T) {
 			want: nil,
 		},
 		{
-			args: args{head: &ListNode{0, nil}},
-			want: &ListNode{0, nil},
+			args: args{head: &ListNode{Val: 0}},
+			want: &ListNode{Val: 0},
 		},
 		{
 			args: args{
@@ -109,8 +109,8 @@ func Test_deleteDuplicates3(t *testing.T) {
 			want: nil,
 		},
 		{
-			args: args{head: &ListNode{0, nil}},
-			want: &ListNode{0, nil},
+			args: args{head: &ListNode{Val: 0}},
+			want: &ListNode{Val: 0},
 		},
 		{
 			args: args{
