@@ -5,12 +5,11 @@ import (
 	"testing"
 )
 
-func moveZerosTest(nums []int, f func([]int)) []int {
-	f(nums)
-	return nums
-}
-
 func Test_moveZerosTest(t *testing.T) {
+	testF := func(nums []int, f func([]int)) []int {
+		f(nums)
+		return nums
+	}
 	type args struct {
 		nums []int
 		f    func([]int)
@@ -37,7 +36,7 @@ func Test_moveZerosTest(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := moveZerosTest(tt.args.nums, tt.args.f); !reflect.DeepEqual(got, tt.want) {
+			if got := testF(tt.args.nums, tt.args.f); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("moveZerosTest() = %v, want %v", got, tt.want)
 			}
 		})

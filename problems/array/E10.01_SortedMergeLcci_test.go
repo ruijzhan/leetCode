@@ -5,11 +5,11 @@ import (
 	"testing"
 )
 
-func mergeTest(A []int, m int, B []int, n int, f func([]int, int, []int, int)) []int {
-	f(A, m, B, n)
-	return A
-}
 func Test_mergeTest(t *testing.T) {
+	testF := func(A []int, m int, B []int, n int, f func([]int, int, []int, int)) []int {
+		f(A, m, B, n)
+		return A
+	}
 	type args struct {
 		A []int
 		m int
@@ -38,19 +38,19 @@ func Test_mergeTest(t *testing.T) {
 
 			copy(copyA, tt.args.A)
 			copy(copyB, tt.args.B)
-			if got := mergeTest(copyA, tt.args.m, copyB, tt.args.n, merge); !reflect.DeepEqual(got, tt.want) {
+			if got := testF(copyA, tt.args.m, copyB, tt.args.n, merge); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("mergeTest() = %v, want %v", got, tt.want)
 			}
 
 			copy(copyA, tt.args.A)
 			copy(copyB, tt.args.B)
-			if got := mergeTest(copyA, tt.args.m, copyB, tt.args.n, merge2); !reflect.DeepEqual(got, tt.want) {
+			if got := testF(copyA, tt.args.m, copyB, tt.args.n, merge2); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("mergeTest2() = %v, want %v", got, tt.want)
 			}
 
 			copy(copyA, tt.args.A)
 			copy(copyB, tt.args.B)
-			if got := mergeTest(copyA, tt.args.m, copyB, tt.args.n, merge3); !reflect.DeepEqual(got, tt.want) {
+			if got := testF(copyA, tt.args.m, copyB, tt.args.n, merge3); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("mergeTest3() = %v, want %v", got, tt.want)
 			}
 		})
