@@ -82,3 +82,19 @@ func (head *ListNode) String() string {
 	buf.WriteString("]")
 	return buf.String()
 }
+
+func (head *ListNode) DeepCopy() *ListNode {
+	if head == nil {
+		return nil
+	}
+	newHead := new(ListNode)
+	prev := newHead
+	curr := head
+	for curr != nil {
+		node := &ListNode{Val: curr.Val}
+		prev.Next = node
+		prev = prev.Next
+		curr = curr.Next
+	}
+	return newHead.Next
+}
