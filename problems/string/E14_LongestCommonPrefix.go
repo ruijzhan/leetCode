@@ -1,9 +1,11 @@
 package string
 
-import "strings"
-
 // 横向扫描
 func longestCommonPrefix(strs []string) string {
+	if len(strs) == 0 {
+		return ""
+	}
+
 	min := func(x, y int) int {
 		if x < y {
 			return x
@@ -12,25 +14,22 @@ func longestCommonPrefix(strs []string) string {
 	}
 
 	lcp := func(s1, s2 string) string {
-		builder := strings.Builder{}
+		prefix := []byte{}
 		for i := 0; i < min(len(s1), len(s2)); i++ {
 			if s1[i] == s2[i] {
-				builder.WriteByte(s1[i])
+				prefix = append(prefix, s1[i])
 			} else {
 				break
 			}
 		}
-		return builder.String()
+		return string(prefix)
 	}
 
-	if len(strs) == 0 {
-		return ""
-	}
 	prefix := strs[0]
 	for i := 1; i < len(strs); i++ {
 		prefix = lcp(prefix, strs[i])
 		if prefix == "" {
-			break
+			return ""
 		}
 	}
 	return prefix
@@ -41,24 +40,18 @@ func longestCommonPrefix2(strs []string) string {
 	if len(strs) == 0 {
 		return ""
 	}
-	builder := strings.Builder{}
+	lcp := []byte{}
+
 	for i := 0; i < len(strs[0]); i++ {
-		var char byte
+		b := strs[0][i]
 		for j := 0; j < len(strs); j++ {
-			if i >= len(strs[j]) {
-				return builder.String()
-			}
-			curr := strs[j][i]
-			if char == 0 {
-				char = strs[j][i]
-			} else if char != curr {
-				return builder.String()
+			if i == len(strs[j]) || strs[j][i] != b {
+				return string(lcp)
 			}
 		}
-		builder.WriteByte(char)
+		lcp = append(lcp, b)
 	}
-
-	return builder.String()
+	return string(lcp)
 }
 
 // TODO: 分治
