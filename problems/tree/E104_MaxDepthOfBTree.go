@@ -1,32 +1,26 @@
 package tree
 
-// 层级迭代
+// 层级遍历
 func maxDepth1(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	process := func(nodes []*TreeNode) []*TreeNode {
+	depth := 0
+	nodes := []*TreeNode{root}
+	for len(nodes) > 0 {
+		depth++
 		newNodes := []*TreeNode{}
 		for _, node := range nodes {
-			if node == nil {
-				continue
+			if node.Left != nil {
+				newNodes = append(newNodes, node.Left)
 			}
-			newNodes = append(newNodes, node.Left, node.Right)
+			if node.Right != nil {
+				newNodes = append(newNodes, node.Right)
+			}
 		}
-		return newNodes
+		nodes = newNodes
 	}
-	nodes := []*TreeNode{root}
-	i := 0
-	for {
-		nodes = process(nodes)
-		if len(nodes) > 0 {
-			i++
-		} else {
-			break
-		}
-	}
-
-	return i
+	return depth
 }
 
 // 递归
