@@ -71,7 +71,11 @@ func (root *TreeNode) slice() []int {
 		}
 	}
 
-	for i := len(vals) - 1; i > 0; i-- {
+	if vals[0] == null {
+		return []int{}
+	}
+
+	for i := len(vals) - 1; i >= 0; i-- {
 		if vals[i] != null {
 			return vals[:i+1]
 		}

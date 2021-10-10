@@ -47,6 +47,11 @@ func TestNewTree(t *testing.T) {
 				nums: []int{21, 7, 14, 1, 1, 2, 2, 3, 3},
 			},
 		},
+		{
+			args: args{
+				nums: []int{},
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
