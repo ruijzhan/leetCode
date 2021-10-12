@@ -56,3 +56,125 @@ func Test_search(t *testing.T) {
 		}
 	}
 }
+
+func Test_search4(t *testing.T) {
+	type args struct {
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			args: args{
+				nums:   []int{1, 2, 3, 4, 4, 4, 4, 4, 4, 5, 6, 7, 8},
+				target: 4,
+			},
+			want: 3,
+		},
+		{
+			args: args{
+				nums:   []int{1, 2, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8},
+				target: 5,
+			},
+			want: 9,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := search4(tt.args.nums, tt.args.target); got != tt.want {
+				t.Errorf("search4() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_search5(t *testing.T) {
+	type args struct {
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			args: args{
+				nums:   []int{1, 2, 3, 4, 4, 4, 4, 4, 4, 5, 6, 7, 8},
+				target: 4,
+			},
+			want: 8,
+		},
+		{
+			args: args{
+				nums:   []int{1, 2, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 8},
+				target: 5,
+			},
+			want: 17,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := search5(tt.args.nums, tt.args.target); got != tt.want {
+				t.Errorf("search5() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_search6(t *testing.T) {
+	type args struct {
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			args: args{
+				nums:   []int{3, 4, 6, 7, 10},
+				target: 5,
+			},
+			want: 2,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := search6(tt.args.nums, tt.args.target); got != tt.want {
+				t.Errorf("search6() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_search7(t *testing.T) {
+	type args struct {
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			args: args{
+				nums:   []int{3, 4, 6, 7, 10},
+				target: 5,
+			},
+			want: 1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := search7(tt.args.nums, tt.args.target); got != tt.want {
+				t.Errorf("search7() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
