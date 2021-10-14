@@ -19,24 +19,24 @@ func search(nums []int, target int) int {
 
 // 递归
 func search2(nums []int, target int) int {
-	return searchHelper(nums, 0, len(nums)-1, target)
-}
+	var helper func(int, int) int
+	helper = func(low, high int) int {
+		if low > high {
+			return -1
+		}
 
-func searchHelper(nums []int, low, high, target int) int {
-	if low > high {
-		return -1
-	}
+		mid := low + (high-low)>>1
+		if nums[mid] == target {
+			return mid
+		}
 
-	mid := low + (high-low)>>1
-	if nums[mid] == target {
-		return mid
+		if nums[mid] > target {
+			return helper(low, mid-1)
+		} else {
+			return helper(mid+1, high)
+		}
 	}
-
-	if nums[mid] > target {
-		return searchHelper(nums, low, mid-1, target)
-	} else {
-		return searchHelper(nums, mid+1, high, target)
-	}
+	return helper(0, len(nums)-1)
 }
 
 // 用 sort.Search
