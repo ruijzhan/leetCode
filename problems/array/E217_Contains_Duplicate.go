@@ -31,17 +31,17 @@ func containsDuplicate2(nums []int) bool {
 
 // 递归
 func containsDuplicate3(nums []int) bool {
+	var hasDup func([]int) bool
+	hasDup = func(nums []int) bool {
+		if len(nums) <= 1 {
+			return false
+		}
+		if nums[0] == nums[1] {
+			return true
+		}
+		return false || hasDup(nums[1:])
+	}
+
 	sort.Ints(nums)
 	return hasDup(nums)
-}
-
-func hasDup(nums []int) bool {
-	if len(nums) <= 1 {
-		return false
-	}
-	if nums[0] == nums[1] {
-		return true
-	}
-
-	return false || hasDup(nums[1:])
 }
