@@ -20,3 +20,29 @@ func plusOne(digits []int) []int {
 
 	return digits
 }
+
+// 递归
+func plusOne2(digits []int) []int {
+	var helper func([]int) int
+	helper = func(digits []int) int {
+		if len(digits) == 0 {
+			return 0
+		}
+
+		digits[0] += helper(digits[1:])
+		if digits[0] > 9 {
+			digits[0] -= 10
+			return 1
+		}
+		return 0
+	}
+
+	digits[len(digits)-1] += 1
+
+	if helper(digits) == 1 {
+		newDigits := make([]int, 1, len(digits)+1)
+		newDigits[0] = 1
+		return append(newDigits, digits...)
+	}
+	return digits
+}

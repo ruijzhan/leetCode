@@ -3,6 +3,8 @@ package array
 import (
 	"reflect"
 	"testing"
+
+	"github.com/ruijzhan/leetCode/pkg/utils"
 )
 
 func Test_plusOne(t *testing.T) {
@@ -52,10 +54,14 @@ func Test_plusOne(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := plusOne(tt.args.digits); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("plusOne(%v) = %v, want %v", tt.args.digits, got, tt.want)
-			}
-		})
+		cp := make([]int, len(tt.args.digits))
+		for _, f := range []func([]int) []int{plusOne, plusOne2} {
+			copy(cp, tt.args.digits)
+			t.Run(tt.name, func(t *testing.T) {
+				if got := f(cp); !reflect.DeepEqual(got, tt.want) {
+					t.Errorf("%v(%v) = %v, want %v", utils.GetFunctionName(f), tt.args.digits, got, tt.want)
+				}
+			})
+		}
 	}
 }
