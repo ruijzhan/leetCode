@@ -6,20 +6,6 @@ import (
 )
 
 func Test_sortedArrayToBST(t *testing.T) {
-	bst2Slice := func(root *TreeNode) []int {
-		res := []int{}
-		var helper func(*TreeNode)
-		helper = func(node *TreeNode) {
-			if node == nil {
-				return
-			}
-			helper(node.Left)
-			res = append(res, node.Val)
-			helper(node.Right)
-		}
-		helper(root)
-		return res
-	}
 	type args struct {
 		nums []int
 	}
@@ -49,8 +35,8 @@ func Test_sortedArrayToBST(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := sortedArrayToBST(tt.args.nums); !reflect.DeepEqual(bst2Slice(got), bst2Slice(tt.want)) {
-				t.Errorf("sortedArrayToBST() = %v, want %v", bst2Slice(got), bst2Slice(tt.want))
+			if got := sortedArrayToBST(tt.args.nums); !reflect.DeepEqual(got.inOrder(), tt.want.inOrder()) {
+				t.Errorf("sortedArrayToBST() = %v, want %v", got.inOrder(), tt.want.inOrder())
 			}
 		})
 	}

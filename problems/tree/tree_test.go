@@ -56,7 +56,7 @@ func TestNewTree(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			root := New(tt.args.nums)
-			nums := root.slice()
+			nums := root.levelOrder()
 			if len(tt.args.nums) != len(nums) {
 				t.Errorf("NewTree() = %v, want %v", nums, tt.args.nums)
 			}

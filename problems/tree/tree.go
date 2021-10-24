@@ -58,7 +58,7 @@ func treeBuilder(nodes []*TreeNode, vals []int) {
 	treeBuilder(newNodes, vals)
 }
 
-func (root *TreeNode) slice() []int {
+func (root *TreeNode) levelOrder() []int {
 	processing := []*TreeNode{root}
 	vals := make([]int, 0)
 	for ; len(processing) > 0; processing = processing[1:] {
@@ -80,5 +80,20 @@ func (root *TreeNode) slice() []int {
 			return vals[:i+1]
 		}
 	}
+	return vals
+}
+
+func (root *TreeNode) inOrder() []int {
+	vals := make([]int, 0)
+	var helper func(*TreeNode)
+	helper = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+		helper(node.Left)
+		vals = append(vals, node.Val)
+		helper(node.Right)
+	}
+	helper(root)
 	return vals
 }
