@@ -19,30 +19,30 @@ func Test_mergeInBetween(t *testing.T) {
 	}{
 		{
 			args: args{
-				list1: newLinkedList(0, 1, 2, 3, 4, 5),
+				list1: New(0, 1, 2, 3, 4, 5),
 				a:     3,
 				b:     4,
-				list2: newLinkedList(1000000, 1000001, 1000002),
+				list2: New(1000000, 1000001, 1000002),
 			},
-			want: newLinkedList(0, 1, 2, 1000000, 1000001, 1000002, 5),
+			want: New(0, 1, 2, 1000000, 1000001, 1000002, 5),
 		},
 		{
 			args: args{
-				list1: newLinkedList(0, 1, 2, 3, 4, 5, 6),
+				list1: New(0, 1, 2, 3, 4, 5, 6),
 				a:     2,
 				b:     5,
-				list2: newLinkedList(1000000, 1000001, 1000002, 1000003, 1000004),
+				list2: New(1000000, 1000001, 1000002, 1000003, 1000004),
 			},
-			want: newLinkedList(0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6),
+			want: New(0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6),
 		},
 		{
 			args: args{
-				list1: newLinkedList(0, 1, 2),
+				list1: New(0, 1, 2),
 				a:     1,
 				b:     1,
-				list2: newLinkedList(1000000, 1000001, 1000002, 1000003),
+				list2: New(1000000, 1000001, 1000002, 1000003),
 			},
-			want: newLinkedList(0, 1000000, 1000001, 1000002, 1000003, 2),
+			want: New(0, 1000000, 1000001, 1000002, 1000003, 2),
 		},
 	}
 	for _, tt := range tests {

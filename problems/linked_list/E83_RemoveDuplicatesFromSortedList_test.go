@@ -24,21 +24,21 @@ func Test_deleteDuplicates(t *testing.T) {
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 3, 3),
+				head: New(1, 1, 2, 2, 3, 3),
 			},
-			want: newLinkedList(1, 2, 3),
+			want: New(1, 2, 3),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2),
+				head: New(1, 1, 2),
 			},
-			want: newLinkedList(1, 2),
+			want: New(1, 2),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
+				head: New(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
 			},
-			want: newLinkedList(1, 2, 3, 4),
+			want: New(1, 2, 3, 4),
 		},
 	}
 	for _, tt := range tests {
@@ -69,21 +69,21 @@ func Test_deleteDuplicates2(t *testing.T) {
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 3, 3),
+				head: New(1, 1, 2, 2, 3, 3),
 			},
-			want: newLinkedList(1, 2, 3),
+			want: New(1, 2, 3),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2),
+				head: New(1, 1, 2),
 			},
-			want: newLinkedList(1, 2),
+			want: New(1, 2),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
+				head: New(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
 			},
-			want: newLinkedList(1, 2, 3, 4),
+			want: New(1, 2, 3, 4),
 		},
 	}
 	for _, tt := range tests {
@@ -114,21 +114,21 @@ func Test_deleteDuplicates3(t *testing.T) {
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 3, 3),
+				head: New(1, 1, 2, 2, 3, 3),
 			},
-			want: newLinkedList(1, 2, 3),
+			want: New(1, 2, 3),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2),
+				head: New(1, 1, 2),
 			},
-			want: newLinkedList(1, 2),
+			want: New(1, 2),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
+				head: New(1, 1, 2, 2, 2, 2, 3, 3, 4, 4),
 			},
-			want: newLinkedList(1, 2, 3, 4),
+			want: New(1, 2, 3, 4),
 		},
 	}
 	for _, tt := range tests {

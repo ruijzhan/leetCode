@@ -16,33 +16,33 @@ func Test_reverseList(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: newLinkedList(),
+				head: New(),
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				head: newLinkedList(0),
+				head: New(0),
 			},
-			want: newLinkedList(0),
+			want: New(0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1),
+				head: New(0, 1),
 			},
-			want: newLinkedList(1, 0),
+			want: New(1, 0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1, 2),
+				head: New(0, 1, 2),
 			},
-			want: newLinkedList(2, 1, 0),
+			want: New(2, 1, 0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1, 2, 3),
+				head: New(0, 1, 2, 3),
 			},
-			want: newLinkedList(3, 2, 1, 0),
+			want: New(3, 2, 1, 0),
 		},
 	}
 	for _, tt := range tests {
@@ -65,33 +65,33 @@ func Test_reverseList2(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: newLinkedList(),
+				head: New(),
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				head: newLinkedList(0),
+				head: New(0),
 			},
-			want: newLinkedList(0),
+			want: New(0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1),
+				head: New(0, 1),
 			},
-			want: newLinkedList(1, 0),
+			want: New(1, 0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1, 2),
+				head: New(0, 1, 2),
 			},
-			want: newLinkedList(2, 1, 0),
+			want: New(2, 1, 0),
 		},
 		{
 			args: args{
-				head: newLinkedList(0, 1, 2, 3),
+				head: New(0, 1, 2, 3),
 			},
-			want: newLinkedList(3, 2, 1, 0),
+			want: New(3, 2, 1, 0),
 		},
 	}
 	for _, tt := range tests {

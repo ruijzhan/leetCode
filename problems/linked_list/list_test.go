@@ -45,7 +45,7 @@ func Test_newLinkedList(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := newLinkedList(tt.args.nums...); !reflect.DeepEqual(got, tt.want) {
+			if got := New(tt.args.nums...); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("makeLinkedList() = %v, want %v", got, tt.want)
 			}
 		})
@@ -95,9 +95,9 @@ func TestListNode_DeepCopy(t *testing.T) {
 	}{
 		{
 			fields: fields{
-				head: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
+				head: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
 			},
-			want: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
+			want: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
 		},
 	}
 	for _, tt := range tests {

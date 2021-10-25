@@ -17,31 +17,31 @@ func Test_removeNthFromEnd(t *testing.T) {
 	}{
 		{
 			args: args{
-				head: newLinkedList(1),
+				head: New(1),
 				n:    1,
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 2, 3, 4, 5),
+				head: New(1, 2, 3, 4, 5),
 				n:    2,
 			},
-			want: newLinkedList(1, 2, 3, 5),
+			want: New(1, 2, 3, 5),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 2),
+				head: New(1, 2),
 				n:    1,
 			},
-			want: newLinkedList(1),
+			want: New(1),
 		},
 		{
 			args: args{
-				head: newLinkedList(1, 2),
+				head: New(1, 2),
 				n:    2,
 			},
-			want: newLinkedList(2),
+			want: New(2),
 		},
 	}
 	for _, tt := range tests {

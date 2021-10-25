@@ -17,22 +17,22 @@ func Test_getIntersectionNode(t *testing.T) {
 	}{
 		{
 			args: args{
-				headA: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
-				headB: newLinkedList(1, 3, 4, 56, 6),
+				headA: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
+				headB: New(1, 3, 4, 56, 6),
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				headA: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
-				headB: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
+				headA: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
+				headB: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
 			},
 			want: nil,
 		},
 		{
 			args: args{
-				headA: newLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9),
-				headB: newLinkedList(),
+				headA: New(1, 2, 3, 4, 5, 6, 7, 8, 9),
+				headB: New(),
 			},
 			want: nil,
 		},

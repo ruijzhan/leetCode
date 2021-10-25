@@ -17,12 +17,12 @@ func Test_mergeKLists(t *testing.T) {
 		{
 			args: args{
 				lists: []*ListNode{
-					newLinkedList(1, 4, 5),
-					newLinkedList(1, 3, 4),
-					newLinkedList(2, 6),
+					New(1, 4, 5),
+					New(1, 3, 4),
+					New(2, 6),
 				},
 			},
-			want: newLinkedList(1, 1, 2, 3, 4, 4, 5, 6),
+			want: New(1, 1, 2, 3, 4, 4, 5, 6),
 		},
 		{
 			args: args{

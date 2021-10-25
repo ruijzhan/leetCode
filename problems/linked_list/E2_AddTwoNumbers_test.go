@@ -20,17 +20,17 @@ func Test_addTwoNumbers(t *testing.T) {
 	}{
 		{
 			args: args{
-				l1: newLinkedList(2, 4, 3),
-				l2: newLinkedList(5, 6, 4),
+				l1: New(2, 4, 3),
+				l2: New(5, 6, 4),
 			},
-			want: newLinkedList(7, 0, 8),
+			want: New(7, 0, 8),
 		},
 		{
 			args: args{
-				l1: newLinkedList(9, 9, 9, 9, 9, 9, 9),
-				l2: newLinkedList(9, 9, 9, 9),
+				l1: New(9, 9, 9, 9, 9, 9, 9),
+				l2: New(9, 9, 9, 9),
 			},
-			want: newLinkedList(8, 9, 9, 9, 0, 0, 0, 1),
+			want: New(8, 9, 9, 9, 0, 0, 0, 1),
 		},
 		{
 			args: args{
@@ -41,10 +41,10 @@ func Test_addTwoNumbers(t *testing.T) {
 		},
 		{
 			args: args{
-				l1: newLinkedList(2, 4, 3),
+				l1: New(2, 4, 3),
 				l2: nil,
 			},
-			want: newLinkedList(2, 4, 3),
+			want: New(2, 4, 3),
 		},
 	}
 	for _, tt := range tests {

@@ -12,11 +12,11 @@ type ListNode struct {
 }
 
 // 递归
-func newLinkedList(nums ...int) *ListNode {
+func New(nums ...int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
-	return &ListNode{Val: nums[0], Next: newLinkedList(nums[1:]...)}
+	return &ListNode{Val: nums[0], Next: New(nums[1:]...)}
 }
 
 func newLinkedList2(nums ...int) *ListNode {
@@ -45,7 +45,7 @@ func doublyHelper(prev *ListNode, nums []int) *ListNode {
 }
 
 func newRing(n int, nums ...int) *ListNode {
-	l := newLinkedList(nums...)
+	l := New(nums...)
 	var nthNode, tail *ListNode
 	nth := 0
 	curr := l
