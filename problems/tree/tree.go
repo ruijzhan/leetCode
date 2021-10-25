@@ -1,11 +1,16 @@
 package tree
 
-import "math"
+import (
+	"math"
+
+	linkedlist "github.com/ruijzhan/leetCode/problems/linked_list"
+)
 
 const (
 	null = math.MinInt64
 )
 
+type ListNode = linkedlist.ListNode
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
