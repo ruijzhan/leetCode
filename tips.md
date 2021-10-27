@@ -31,3 +31,12 @@ BST 的中序遍历可以得到一个升序的有序数组。检查数组的有�
 1, 在链表节点结构的定义中，加入 key 字段，方便从哈希表中删除对应节点
 
 2, Get, Put 操作会把节点移到链表尾端。Put 操作会添加节点到尾端，还可能会删除第一个节点。将这些频繁的链表操作实现为单独的方法，可以让 Get 和 Put 的代码更简洁清晰。
+
+## 147, [对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/)
+
+外层 for 循环遍历未排序节点，内层 for 进行插入排序。时间复杂度为 O(n^2), 空间复杂度为 O(1)。最后注意下面两行代码循序不要搞反：
+
+```go
+curr.Next = currSorted.Next
+currSorted.Next = curr
+```
