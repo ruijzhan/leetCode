@@ -24,6 +24,10 @@ BST 的中序遍历可以得到一个升序的有序数组。检查数组的有�
 
 时间复杂度 O(n), 空间复杂度 O(n)
 
+## 109, [有序链表转换BST](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/)
+
+写一个函数用快慢指针的方法找到中间节点，注意循环的条件: fast != right && fast.Next != right。把中点作为根，用递归来构建根的左子树和右子树，其中停止条件是链表的 **头节点 == 尾节点**。
+
 ## 146, [实现 LRU 缓存](https://leetcode-cn.com/problems/lru-cache/)
 
 双向链表 + 哈希表
