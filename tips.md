@@ -45,6 +45,10 @@ curr.Next = currSorted.Next
 currSorted.Next = curr
 ```
 
+## 148, [排序链表](https://leetcode-cn.com/problems/sort-list/)
+
+用归并排序。创建 merge 函数合并两个有序链表。创建 cut 函数将一个链表切成两个链表，返回的第一个链表尾部要改为 nil。递归实现 sortList, 对于三个节点以上的链表，先 cut，再递归调用 sortList 排序左右子链表，再合并已排序的链表。对于只有两个节点的链表，用交换两个节点的 Val 来实现排序更方便。
+
 ## 239, [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
 
 如果数组长度是L，窗口长度是K，暴力查找的时间复杂度为 O(LK)，是不能接受的。优化点在于减少每次在窗口中查找最大数的时间。
