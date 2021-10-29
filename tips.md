@@ -10,6 +10,18 @@
 
 在上面的方法中，慢指针一次只能移动一位，不如在遍历字符串的过程中，用 map 来存储已出现的每个字符的 index。这样一来，一旦遇到一个重复的字符，直接就从 map 中读出这个字符上次出现的位置，并把 slow 移动到这个位置。在遍历的同时update 最大窗口的长度。
 
+## 23, [合并 K 个有序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+分治：
+
+```go
+merge2Lists := func(l1, l2 *ListNode) *ListNode 
+...
+left := lists[:middle]
+right := lists[middle:]
+return merge2Lists(mergeKLists(left), mergeKLists(right))
+```
+
 ## 98, [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
 1，中序遍历
