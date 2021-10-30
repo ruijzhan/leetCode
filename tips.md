@@ -109,3 +109,15 @@ currSorted.Next = curr
 
 2， 开始填写答案的条件 i >= k-1; 此次答案的下标： i-k+1
 ```
+
+## 496, [下一个更大元素I](https://leetcode-cn.com/problems/next-greater-element-i/)
+
+单调栈：
+
+- 反向遍历 nums2, 如果当前数比栈顶的数大，就移除栈顶元素，直到遇到比它大的数，或者栈空
+
+- 在把当前数入栈前，用 map 保存其作为 key，栈顶元素为 val。是为下一个比其大的数。如果栈空，就把 -1 作为 val
+
+- 把当前数入栈
+
+- 循环结束后，用 nums1 中的数去 map 里查询生成结果
