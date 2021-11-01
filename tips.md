@@ -118,6 +118,10 @@ currSorted.Next = curr
 2， 开始填写答案的条件 i >= k-1; 此次答案的下标： i-k+1
 ```
 
+## 350, [两个数组的交集II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
+
+先排序两个数组，用双指针。复用 nums1 数组的空间保存返回值。
+
 ## 387, [字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)
 
 - 第一次遍历字符串，用 map 保存每个字符最后出现的位置。第二次遍历字符串，同时查找 map，下标相同就返回答案, 不同就改为 -1 以免下次匹配上
