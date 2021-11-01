@@ -118,6 +118,12 @@ currSorted.Next = curr
 2， 开始填写答案的条件 i >= k-1; 此次答案的下标： i-k+1
 ```
 
+## 387, [字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)
+
+- 第一次遍历字符串，用 map 保存每个字符最后出现的位置。第二次遍历字符串，同时查找 map，下标相同就返回答案, 不同就改为 -1 以免下次匹配上
+
+- 可以用 [26]int 来代替 map
+
 ## 496, [下一个更大元素I](https://leetcode-cn.com/problems/next-greater-element-i/)
 
 单调栈：
