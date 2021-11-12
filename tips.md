@@ -151,3 +151,9 @@ currSorted.Next = curr
 - 把当前数入栈
 
 - 循环结束后，用 nums1 中的数去 map 里查询生成结果
+
+## 654, [最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree/)
+
+- 递归 + 分治。递归终止条件：数组为空或者只有一个元素。
+
+- 使用 max 函数返回数组中最大元素的 index
