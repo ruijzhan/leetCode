@@ -30,6 +30,10 @@ right := lists[middle:]
 return merge2Lists(mergeKLists(left), mergeKLists(right))
 ```
 
+## 53, [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+
+动态规划：如果当前元素之前的元素大于0，则把其加到当前元素上。以此遍历数组，得到最大元素。
+
 ## 98, [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
 1，中序遍历
