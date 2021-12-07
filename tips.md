@@ -30,6 +30,10 @@ right := lists[middle:]
 return merge2Lists(mergeKLists(left), mergeKLists(right))
 ```
 
+## 33, [搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+
+使用二分查找。当每次循环计算出中点下标 mid 后，通过比较 nums[low] 和 nums[mid] 的大小，就能判断出有序的数组在左边还是右边，从而判断出 target 是否在有序数组中。以此为根据，决定下一次循环是搜索左边还是右边。
+
 ## 53, [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
 
 动态规划：如果当前元素之前的元素大于0，则把其加到当前元素上。以此遍历数组，得到最大元素。
