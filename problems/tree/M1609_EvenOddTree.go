@@ -6,7 +6,7 @@ func isEvenOddTree(root *TreeNode) bool {
 	level := 0
 	nodes := []*TreeNode{root}
 	for len(nodes) > 0 {
-		newNodes := []*TreeNode{}
+		newNodes := make([]*TreeNode, 0, len(nodes)*2)
 
 		var prev int
 		odd := level%2 == 0
@@ -17,31 +17,13 @@ func isEvenOddTree(root *TreeNode) bool {
 		}
 
 		for _, node := range nodes {
-			// 检查 奇偶
-			if (odd && node.Val%2 == 0) || (!odd && node.Val%2 != 0) {
-				return false
-			}
-
-			// 检查递增/递减
-			if odd {
-				if node.Val > prev {
-					prev = node.Val
-				} else {
+			if node != nil {
+				if odd && node.Val%2 == 0 || !odd && node.Val%2 != 0 || // 检查奇偶
+					odd && node.Val <= prev || !odd && node.Val >= prev { // 检查递增/减
 					return false
 				}
-			} else {
-				if node.Val < prev {
-					prev = node.Val
-				} else {
-					return false
-				}
-			}
-
-			if node.Left != nil {
-				newNodes = append(newNodes, node.Left)
-			}
-			if node.Right != nil {
-				newNodes = append(newNodes, node.Right)
+				prev = node.Val
+				newNodes = append(newNodes, node.Left, node.Right)
 			}
 		}
 
