@@ -32,3 +32,15 @@ func NodeList(nodes [][]int) *Node {
 
 	return dummy.Next
 }
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func NewListNode(nums ...int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+	return &ListNode{Val: nums[0], Next: NewListNode(nums[1:]...)}
+}
