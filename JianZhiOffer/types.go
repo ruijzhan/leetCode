@@ -1,6 +1,10 @@
 package offer
 
-import "math"
+import (
+	"math"
+
+	"github.com/ruijzhan/leetCode/problems/tree"
+)
 
 var (
 	null = math.MinInt64
@@ -44,3 +48,5 @@ func NewListNode(nums ...int) *ListNode {
 	}
 	return &ListNode{Val: nums[0], Next: NewListNode(nums[1:]...)}
 }
+
+type TreeNode tree.TreeNode
