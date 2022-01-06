@@ -38,6 +38,13 @@ func Test_findNumberIn2DArray(t *testing.T) {
 			},
 			want: false,
 		},
+		{
+			args: args{
+				matrix: [][]int{{1, 1}},
+				target: 2,
+			},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
