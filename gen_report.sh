@@ -1,31 +1,29 @@
 #!/bin/bash
 
-files=$(find . -name *.go| grep -v _test  | cut -d'/' -f2-| sort)
+# 查找所有 Go 代码文件，排除测试文件
+files=$(find . -name "*.go" -not -name "*_test.go" | sort)
 
-declare -i e=0
-declare -i m=0
-declare -i h=0
+# 初始化统计变量
+declare -A counts=( ["E"]=0 ["M"]=0 ["H"]=0 )
 
+# 遍历文件并统计各个难度的数量
 for f in $files; do
-    if [[ "$f" =~ ^.*/E[0-9.]+_.*$ ]]; then
-        e+=1
-    fi
-    
-    if [[ "$f" =~ ^.*/M[0-9.]+_.*$ ]]; then
-        m+=1
-    fi
-
-    if [[ "$f" =~ ^.*/H[0-9.]+_.*$ ]]; then
-        h+=1
+    if [[ "$f" =~ /E[0-9.]+_ ]]; then
+        ((counts["E"]++))
+    elif [[ "$f" =~ /M[0-9.]+_ ]]; then
+        ((counts["M"]++))
+    elif [[ "$f" =~ /H[0-9.]+_ ]]; then
+        ((counts["H"]++))
     fi
 done
 
+# 生成 README.md 文件
 cat << EOF > README.md
 #
 
 | 难度 | 完成 |
 | ---- | ----|
-| 简单 | $e |
-| 中等 | $m |
-| 困难 | $h |
+| 简单 | ${counts["E"]} |
+| 中等 | ${counts["M"]} |
+| 困难 | ${counts["H"]} |
 EOF
